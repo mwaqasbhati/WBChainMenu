@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WBChainMenu'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'This will show horizontal menu to a UITableViewCell with chain animation'
 
 # This description is used to generate tags and improve search results.
