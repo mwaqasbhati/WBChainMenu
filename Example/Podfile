@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'WBChainMenu_Example' do
+  pod 'WBChainMenu', :path => '../'
+
+  target 'WBChainMenu_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

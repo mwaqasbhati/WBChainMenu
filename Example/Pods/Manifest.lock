@@ -1,0 +1,16 @@
+PODS:
+  - WBChainMenu (0.1.0)
+
+DEPENDENCIES:
+  - WBChainMenu (from `../`)
+
+EXTERNAL SOURCES:
+  WBChainMenu:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  WBChainMenu: 5095e59356d43d2f50785da00c1e89ab67ceaeb5
+
+PODFILE CHECKSUM: 3d2f5f3581ac34b04f633b8defa0885fd2358613
+
+COCOAPODS: 1.6.1
