@@ -219,14 +219,14 @@ open class MenuChainItem: UIView {
     }()
     
     /// Menu Item width, default is 30.0
-    var itemWidth: CGFloat = 30.0 {
+    public var itemWidth: CGFloat = 30.0 {
         didSet {
             itemWidthConstraint.constant = itemWidth
         }
     }
     
     /// Menu Item height, default is 30.0
-    var itemHeight: CGFloat = 30.0 {
+    public var itemHeight: CGFloat = 30.0 {
         didSet {
             itemHeightConstraint.constant = itemHeight
         }
