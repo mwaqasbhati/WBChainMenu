@@ -12,8 +12,12 @@ import UIKit
  horizontal and vertical position of the View in view Hierarchy
  */
 public struct Position {
-    let positionX: Horizontal
-    let positionY: Vertical
+    public let positionX: Horizontal
+    public let positionY: Vertical
+    public init(positionX: Horizontal, positionY: Vertical) {
+        self.positionX = positionX
+        self.positionY = positionY
+    }
 }
 
 /**
@@ -177,7 +181,9 @@ public enum Horizontal {
         return constraint
     }
 }
-
+class ActionButton: UIButton {
+    
+}
 open class MenuChainItem: UIView {
     
     //MARK: Properties
@@ -228,7 +234,7 @@ open class MenuChainItem: UIView {
     
     
     //MARK: Initializer
-    convenience init(_ image: String) {
+    public convenience init(_ image: String) {
         self.init(frame: .zero)
         imageName = image
         setup()
@@ -322,7 +328,7 @@ open class MenuChainView: UIView {
         return actionButtonMarginX + actionButtonWidth + 50.0
     }
     /// Main Action Button Y position in the container
-    public var actionButtonMarginY: CGFloat = 20.0 {
+    public var actionButtonMarginY: CGFloat = 0.0 {
         didSet {
             buttonYConstraint.constant = actionButtonMarginY
         }
@@ -364,8 +370,8 @@ open class MenuChainView: UIView {
         }
     }
     /// Initialize main Action button
-    lazy private var actionButton: UIButton = {
-        let button = UIButton()
+    lazy private var actionButton: ActionButton = {
+        let button = ActionButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: actionButtonImage), for: .normal)
         button.backgroundColor = actionButtonBackColor
@@ -386,8 +392,9 @@ open class MenuChainView: UIView {
         super.init(frame: frame)
     }
     
-    convenience init(configure: UIView, with image: String = "dots", position: Position = Position(positionX: .left, positionY: .center)) {
+    public convenience init(configure: UIView, with image: String = "dots", position: Position = Position(positionX: .left, positionY: .center)) {
         self.init(frame: .zero)
+        tag = -1 // later access it
         actionButtonImage = image
         self.position = position
         setup(configure: configure)
@@ -403,6 +410,7 @@ open class MenuChainView: UIView {
      setup Main Menu View and it's subviews
      */
     private func setup(configure: UIView) {
+        removeAll(configure: configure)
         self.configure = configure
         translatesAutoresizingMaskIntoConstraints = false
         configure.addSubview(self)
@@ -422,6 +430,13 @@ open class MenuChainView: UIView {
         
         setupActionButton(configure: configure)
         
+    }
+    private func removeAll(configure: UIView) {
+        for view in configure.subviews {
+            if (view.isKind(of: MenuChainView.classForCoder()) || view.isKind(of: MenuChainItem.classForCoder()) || view.isKind(of: ActionButton.classForCoder())) {
+                view.removeFromSuperview()
+            }
+        }
     }
     /**
      Apply all four constraints(x, y, height, width) on Main Action Button
@@ -446,7 +461,7 @@ open class MenuChainView: UIView {
      */
     private func open() {
         let change = self.positionXConstraint.constant + self.frame.size.width
-        print("I'm done!:\(change)")
+        print("Open \(position.positionX):\(change)")
         self.positionXConstraint.constant = change
         
         UIView.animateKeyframes(withDuration: animationDuration, delay: 0, options: [.calculationModeLinear], animations: { [weak self] in
@@ -476,7 +491,7 @@ open class MenuChainView: UIView {
         var distance = self.menuItemsMargin
         
         let change = self.positionXConstraint.constant - self.frame.size.width
-        print("I'm done!:\(change)")
+        print("Close \(position.positionX):\(change)")
         self.positionXConstraint.constant = change
         
         UIView.animateKeyframes(withDuration: animationDuration, delay: 0, options: [.calculationModeLinear], animations: {
@@ -498,6 +513,17 @@ open class MenuChainView: UIView {
     
     //MARK: IBActions
     @objc func actionButtonPressed() {
+        
+        if let tableViewCell = configure.superview as? UITableViewCell, let tableView = tableViewCell.superview as? UITableView {
+            for (_, cell) in tableView.visibleCells.enumerated() {
+                if let optionView = cell.viewWithTag(-1) as? MenuChainView {
+                    if optionView.isOpen && optionView != self {
+                       optionView.position.positionX == .right ? optionView.open() : optionView.close()
+                       optionView.isOpen = false
+                    }
+                }
+            }
+        }
         
         switch position.positionX {
         case .left:

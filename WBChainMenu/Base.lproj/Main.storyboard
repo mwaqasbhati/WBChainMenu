@@ -30,18 +30,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MA1-Q3-hNn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
-                                                    <string key="text">safgsdhfgjdsfgdsfjkgdfkjghsdfjkgsdbfgkj.dfsbgkjdsfbhgdskjlfgbdsfjkgbdsfkjgdsfgbsdfkljgbdsilfkjbwadfkfjsdgsdfgkjsdhfgsdfhgsdfkhjhglsdfkjghsdbflkgjhsdfbgkdjsfhgbksdfjgn,hbdsflgkjhsdbfglviksdfjghbbsefligkjhbdsflgkjdfbglsdfkjgbdsflgkjdfsbglsdfkjgbdfsligkhjerbfkuerhjbvelriukvjebrlvjbervkb</string>
+                                                    <rect key="frame" x="8" y="8" width="359" height="133.5"/>
+                                                    <string key="text">This is custom TableViewCell This is custom TableViewCell This is custom TableViewCell This is custom TableViewCell This is custom TableViewCell This is custom TableViewCell This is custom TableViewCell This is custom TableViewCell</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.039215686270000001" green="0.66274509800000003" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="MA1-Q3-hNn" firstAttribute="top" secondItem="OaC-l0-Tyo" secondAttribute="top" id="8cg-l0-tAR"/>
-                                                <constraint firstAttribute="bottom" secondItem="MA1-Q3-hNn" secondAttribute="bottom" id="p1u-j6-3Zp"/>
-                                                <constraint firstAttribute="trailing" secondItem="MA1-Q3-hNn" secondAttribute="trailing" id="xaq-jN-rDw"/>
-                                                <constraint firstItem="MA1-Q3-hNn" firstAttribute="leading" secondItem="OaC-l0-Tyo" secondAttribute="leading" id="yeB-x8-N6T"/>
+                                                <constraint firstItem="MA1-Q3-hNn" firstAttribute="top" secondItem="OaC-l0-Tyo" secondAttribute="top" constant="8" id="8cg-l0-tAR"/>
+                                                <constraint firstAttribute="bottom" secondItem="MA1-Q3-hNn" secondAttribute="bottom" constant="8" id="p1u-j6-3Zp"/>
+                                                <constraint firstAttribute="trailing" secondItem="MA1-Q3-hNn" secondAttribute="trailing" constant="8" id="xaq-jN-rDw"/>
+                                                <constraint firstItem="MA1-Q3-hNn" firstAttribute="leading" secondItem="OaC-l0-Tyo" secondAttribute="leading" constant="8" id="yeB-x8-N6T"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
