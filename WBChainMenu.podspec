@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'WBChainMenu'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of WBChainMenu.'
+  s.summary          = 'This will show horizontal menu to a UITableViewCell with chain animation'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = 'This will show horizontal menu to a UITableViewCell with chain animation'
+  s.description      = 'This menu will resolve a problem currently iOS devs are facing while adding multiple options in UITableViewCell. I have made this controller with the aim to help and take guidance.'
 
   s.homepage         = 'https://github.com/mwaqasbhati/WBChainMenu'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -30,10 +30,10 @@ Pod::Spec.new do |s|
 
   s.source_files = 'WBChainMenu/Classes/**/*'
   
-  #  s.resource_bundles = {
+  #s.resource_bundles = {
   #  'WBChainMenu' => ['WBChainMenu/Assets/*.png']
   #}
-  s.resources = 'WBChainMenu/Assets/*.png'
+  #s.resources = 'WBChainMenu/Assets/*.png'
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
